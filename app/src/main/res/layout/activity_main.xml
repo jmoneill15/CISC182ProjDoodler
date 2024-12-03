@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <TextView
         android:id="@+id/titleHeader"
         android:layout_width="match_parent"
-        android:layout_height="116dp"
-        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content"
+        android:background="#6DCECCCC"
         android:fontFamily="serif"
         android:paddingTop="60dp"
+        android:paddingBottom="10dp"
         android:text="Doodler"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
@@ -20,62 +22,94 @@
     <com.example.cisc182projdoodler.DoodleView
         android:id="@+id/doodleArea"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="#6DD7D7D7"
-        android:fadingEdge="horizontal"
-        android:outlineProvider="none" />
+        android:layout_height="559dp"
+        android:background="#FFFFFF"
+        android:fadingEdge="horizontal" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/brushButton"
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:layout_margin="4dp"
-            android:layout_marginLeft="4dp"
-            android:fontFamily="sans-serif-condensed"
-            android:onClick="brushButtonClick"
-            android:text="Brush" />
+        android:layout_height="90dp"
+        android:background="#6DCECCCC"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="9dp">
 
         <Button
             android:id="@+id/colorButton"
-            android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_width="90dp"
+            android:layout_height="65dp"
             android:layout_margin="4dp"
             android:layout_marginLeft="4dp"
+            android:backgroundTint="#90A988"
             android:fontFamily="sans-serif-condensed"
-            android:onClick="colorButtonClick"
             android:text="Color" />
 
         <Button
             android:id="@+id/undoButton"
-            android:layout_width="50dp"
+            android:layout_width="90dp"
             android:layout_height="65dp"
             android:layout_margin="4dp"
+            android:backgroundTint="#90A988"
             android:fontFamily="sans-serif-condensed"
-            android:onClick="undoButtonClick"
-            android:text="U" />
+            android:text="Undo" />
 
         <Button
             android:id="@+id/redoButton"
-            android:layout_width="50dp"
+            android:layout_width="90dp"
             android:layout_height="65dp"
             android:layout_margin="4dp"
+            android:backgroundTint="#90A988"
             android:fontFamily="sans-serif-condensed"
-            android:onClick="redoButtonClick"
-            android:text="R" />
+            android:text="Redo" />
 
         <Button
             android:id="@+id/clearButton"
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="65dp"
             android:layout_margin="4dp"
+            android:backgroundTint="#90A988"
             android:fontFamily="sans-serif-condensed"
-            android:onClick="clearButtonClick"
             android:text="Clear" />
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#6DCECCCC"
+        android:fontFamily="serif"
+        android:text="Brush Thickness:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/brushSizeSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:max="50"
+        android:progress="10"
+        android:progressTint="#000000"
+        android:background="#6DCECCCC"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:fontFamily="serif"
+        android:text="Color Opacity:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#6DCECCCC"/>
+
+    <SeekBar
+        android:id="@+id/opacitySeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_marginBottom="15dp"
+        android:background="#6DCECCCC"
+        android:max="255"
+        android:progress="255"
+        android:progressTint="#000000" />
 </LinearLayout>
