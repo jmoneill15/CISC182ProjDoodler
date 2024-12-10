@@ -28,6 +28,15 @@ class DoodleView @JvmOverloads constructor(
         setLayerType(LAYER_TYPE_HARDWARE, null)
     }
 
+    private var backgroundImage: Bitmap? = null
+
+    fun setBackgroundImage(bitmap: Bitmap) {
+        backgroundImage = bitmap
+        invalidate()
+    }
+
+    //Draw function without background image
+/*
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw all saved paths
@@ -37,6 +46,23 @@ class DoodleView @JvmOverloads constructor(
         // Draw the current path being drawn
         canvas.drawPath(currentPath, currentPaint)
     }
+*/
+override fun onDraw(canvas: Canvas) {
+    super.onDraw(canvas)
+
+    // Draw the background image if it exists
+    backgroundImage?.let {
+        canvas.drawBitmap(it, null, Rect(0, 0, width, height), null)
+    }
+
+    // Draw all saved paths
+    pathList.forEachIndexed { index, path ->
+        canvas.drawPath(path, paintList[index])
+    }
+
+    // Draw the current path being drawn
+    canvas.drawPath(currentPath, currentPaint)
+}
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
